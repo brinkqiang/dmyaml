@@ -23,17 +23,6 @@
 #define __DMYAML_H_INCLUDE__
 
 #include "dmos.h"
+#include "yaml-cpp/yaml.h"
 
-class Idmyaml
-{
-public:
-    virtual ~Idmyaml(){}
-    virtual void DMAPI Release(void) = 0;
-	
-    virtual void DMAPI Test(void) = 0;
-};
-
-Idmyaml* DMAPI dmyamlGetModule();
-
-typedef Idmyaml* (DMAPI* PFN_dmyamlGetModule)();
 #endif // __DMYAML_H_INCLUDE__
