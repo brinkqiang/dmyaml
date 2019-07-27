@@ -27,7 +27,7 @@ int main(int argc, char* argv[]) {
         root[0].reset();
         root[4]["key"] = "value";
 
-        std::cout << root;
+        std::cout << root << std::endl;
         // # not sure about formatting
         // - {key: value}
         // - primes: [2, 3, 5, 7, 11]
