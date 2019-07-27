@@ -22,7 +22,6 @@
 #ifndef __DMYAML_H_INCLUDE__
 #define __DMYAML_H_INCLUDE__
 
-#include "dmos.h"
 #include "yaml-cpp/yaml.h"
 
 #endif // __DMYAML_H_INCLUDE__

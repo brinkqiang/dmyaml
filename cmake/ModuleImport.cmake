@@ -81,7 +81,8 @@ macro(LibImport ModuleName ModulePath)
         FILE(GLOB_RECURSE LIB_SOURCES
         ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
         ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
-
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/${ModuleName}/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/${ModuleName}/*.h
         ${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath}/*.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath}/*.cc
         ${CMAKE_CURRENT_SOURCE_DIR}/${ModulePath}/*.c
