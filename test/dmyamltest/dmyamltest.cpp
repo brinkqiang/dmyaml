@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include "yaml-cpp/emittermanip.h"
-#include "yaml-cpp/emittermanip.h"
 #include "dmutil.h"
 
 int main(int argc, char* argv[]) {

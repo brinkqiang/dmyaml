@@ -23,5 +23,6 @@
 #define __DMYAML_H_INCLUDE__
 
 #include "yaml-cpp/yaml.h"
+#include "yaml-cpp/emittermanip.h"
 
 #endif // __DMYAML_H_INCLUDE__
