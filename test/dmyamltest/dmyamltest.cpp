@@ -1,8 +1,8 @@
 
-#include "yaml-cpp/yaml.h"
 #include <iostream>
 #include <string>
-#include "yaml-cpp/emittermanip.h"
+
+#include "dmyaml.h"
 #include "dmutil.h"
 
 int main(int argc, char* argv[]) {
