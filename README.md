@@ -10,22 +10,41 @@ Copyright (c) 2013-2018 brinkqiang (brink.qiang@gmail.com)
 [![GitHub forks](https://img.shields.io/github/forks/brinkqiang/dmyaml.svg?label=Fork)](https://github.com/brinkqiang/dmyaml)
 
 ## Build status
-| [Linux][lin-link] | [MacOSX][osx-link] | [Windows][win-link] |
+| [Linux][lin-link] | [Mac][mac-link] | [Windows][win-link] |
 | :---------------: | :----------------: | :-----------------: |
-| ![lin-badge]      | ![osx-badge]       | ![win-badge]        |
+| ![lin-badge]      | ![mac-badge]       | ![win-badge]        |
 
-[lin-badge]: https://travis-ci.org/brinkqiang/dmyaml.svg?branch=master "Travis build status"
-[lin-link]:  https://travis-ci.org/brinkqiang/dmyaml "Travis build status"
-[osx-badge]: https://travis-ci.org/brinkqiang/dmyaml.svg?branch=master "Travis build status"
-[osx-link]:  https://travis-ci.org/brinkqiang/dmyaml "Travis build status"
-[win-badge]: https://ci.appveyor.com/api/projects/status/github/brinkqiang/dmyaml?branch=master&svg=true "AppVeyor build status"
-[win-link]:  https://ci.appveyor.com/project/brinkqiang/dmyaml "AppVeyor build status"
+[lin-badge]: https://github.com/brinkqiang/dmyaml/workflows/linux/badge.svg "linux build status"
+[lin-link]:  https://github.com/brinkqiang/dmyaml/actions/workflows/linux.yml "linux build status"
+[mac-badge]: https://github.com/brinkqiang/dmyaml/workflows/mac/badge.svg "mac build status"
+[mac-link]:  https://github.com/brinkqiang/dmyaml/actions/workflows/mac.yml "mac build status"
+[win-badge]: https://github.com/brinkqiang/dmyaml/workflows/win/badge.svg "win build status"
+[win-link]:  https://github.com/brinkqiang/dmyaml/actions/workflows/win.yml "win build status"
 
 ## Intro
 dmyaml
 ```cpp
+
+#include <iostream>
+#include "dmyaml.h"
+#include "dmutil.h"
+int main() {
+    DMSetWorkPath();
+    // 加载配置文件
+    YAML::Node config = YAML::LoadFile("config/model.yaml");
+
+    // 验证配置字段
+    std::cout << "Testing model.yaml configuration:" << std::endl;
+    std::cout << "Base URL: " << config["baseurl"].as<std::string>() << std::endl;
+    std::cout << "Model: " << config["model"].as<std::string>() << std::endl;
+    std::cout << "Temperature: " << config["temperature"].as<double>() << std::endl;
+    std::cout << "Max Tokens: " << config["max_tokens"].as<int>() << std::endl;
+
+    return 0;
+}
+
+
 ```
 ## Contacts
-[![Join the chat](https://badges.gitter.im/brinkqiang/dmyaml/Lobby.svg)](https://gitter.im/brinkqiang/dmyaml)
 
 ## Thanks
