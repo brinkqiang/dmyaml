@@ -1,38 +1,21 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.21)
 
-PROJECT(dmyaml)
+project(dmyaml)
 
-LIST(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
-INCLUDE(cmake/ModuleImport.cmake)
-INCLUDE(cmake/ModuleCompileOptions.cmake)
+list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+include(cmake/ModuleImport.cmake)
+include(cmake/ModuleCompileOptions.cmake)
 ModuleSetCompileOptions()
 
-SET(DMYAML_VERSION_MAJOR "1")
-SET(DMYAML_VERSION_MINOR "0")
-SET(DMYAML_VERSION_PATCH "1")
-SET(DMYAML_VERSION "${DMYAML_VERSION_MAJOR}.${DMYAML_VERSION_MINOR}.${DMYAML_VERSION_PATCH}")
+if ( MSVC )
+    set_property( DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT ${PROJECT_NAME} )
+endif()
 
-MESSAGE(STATUS "VERSION: ${DMYAML_VERSION}")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/utf-8>")
+add_compile_options("$<$<CXX_COMPILER_ID:MSVC>:/std:c++17>")
 
-OPTION(USE_DMYAML "use dmyaml" OFF)
-
-ModuleInclude("yaml-cpp" "")
 LibImport("dmyaml" "src")
-ExeImport("test" "dmyaml")
 
-#ADD_CUSTOM_COMMAND(
-#TARGET dmyamltest
-#PRE_BUILD
-#COMMAND ${CMAKE_COMMAND} -E copy_if_different
-#${CMAKE_CURRENT_SOURCE_DIR}/config/test.csv
-#$<TARGET_FILE_DIR:dmyamltest>
-#)
-
-#INSTALL(DIRECTORY include/ DESTINATION include)
-#INSTALL(TARGETS dmyaml
-#        RUNTIME DESTINATION bin
-#        LIBRARY DESTINATION lib
-#        ARCHIVE DESTINATION lib)
-
-#SET(DMYAML_LIBS "dmyaml")
-#MARK_AS_ADVANCED(${DMYAML_LIBS})
+if (PROJECT_IS_TOP_LEVEL)
+    ExeImport("test" "dmyaml")
+endif(PROJECT_IS_TOP_LEVEL)
