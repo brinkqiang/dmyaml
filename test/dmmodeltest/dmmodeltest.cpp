@@ -4,7 +4,7 @@
 int main() {
     DMSetWorkPath();
     // 加载配置文件
-    YAML::Node config = YAML::LoadFile("config/model.yaml");
+    YAML::Node config = YAML::LoadFile("./../config/model.yaml");
 
     // 验证配置字段
     std::cout << "Testing model.yaml configuration:" << std::endl;
